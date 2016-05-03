@@ -41,7 +41,7 @@
     // 平台上的测试账号（服务对接才能得到该会议号）
 //    self.textField.text = @"xxx";
      NSLog(@"请到平台上申请测试的anyrtcID，或者服务对接生成房间号");
-    self.textField.text = @"";
+    self.textField.text = @"800000000014";
     self.textField.textColor = [UIColor colorWithHexString:@"2fcf6f"];
     [self.textField setValue:[UIColor colorWithHexString:@"2fcf6f"] forKeyPath:@"_placeholderLabel.textColor"];
     self.textField.font = [UIFont systemFontOfSize:13];

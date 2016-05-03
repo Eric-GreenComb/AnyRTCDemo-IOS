@@ -12,26 +12,13 @@
 #import "AnyRTC.h"
 
 @protocol AnyRTCLiveDelegate <NSObject>
+@optional
 /**
  *  Enter living secuess
  *
  *  @param strAnyrtcId the anyrtc of id
  */
 - (void) OnRtcJoinLiveOK:(NSString*) strAnyrtcId;
-
-/**
- *  Marking of personnel in or leave the living meeting
- *
- *  @param narrMember all of the mark(maybe one or more,the type of one item in narrMember is json,parsing the json to verify leave or enter)
- */
-- (void) OnRtcLiveMemberList:(NSArray*) narrMember;
-
-/**
- *  Enable Line
- *
- *  @param enable YES/NO
- */
-- (void) OnRtcLiveEnableLine:(BOOL) enable;
 
 /**
  *  Enter living failed
@@ -83,13 +70,20 @@
 - (void)OnRtcRemoteAVStatus:(NSString*)publishID withAudioEnable:(BOOL)audioEnable withVideoEnable:(BOOL)videoEnable;
 
 /**
+ *  Enable Line
+ *
+ *  @param enable YES/NO
+ */
+- (void) OnRtcLiveEnableLine:(BOOL) enable;
+
+/**
  *  Messages
  *
  *  @param nsCustomId other's platform  user id
  *  @param nsCustomName other's platform  user nick name
  *  @param nsContent  message
  */
-- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withNikeName:(NSString*)nsCustomName withContent:(NSString*)nsContent;
+- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withCustomName:(NSString*)nsCustomName withContent:(NSString*)nsContent;
 
 /**
  *  All member count in this live.
@@ -137,7 +131,7 @@
 - (void) Leave;
 
 /**
- *  SetLocalAudioEnable (default is NO)
+ *  SetPreviewEnable
  *
  *  @param enable set YES to enable, NO to disable.
  */
@@ -162,12 +156,6 @@
  *  @param enable set YES to enable, NO to disable.
  */
 - (void) SetSpeakerEnable:(BOOL)enable;
-/**
- *  SetproximityMonitoringEnabled  (default is NO)
- *
- *  @param enable set YES to enable, NO to disable.
- */
-- (void) SetproximityMonitoringEnabled:(BOOL)enable;
 
 /**
  *  SwitchCamera  font/back local camera

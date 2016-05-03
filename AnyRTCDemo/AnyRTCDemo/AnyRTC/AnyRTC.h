@@ -18,6 +18,7 @@ typedef NS_ENUM(NSInteger,AnyRTCErrorCode){
     AnyRTC_SQL_ERR = 204,	 // internal database server error
     AnyRTC_ARREARS = 205,	 // account overdue bills
     AnyRTC_LOCKED = 206,	 // account is locked
+    AnyRTC_FORCE_EXIT = 207, // fouce live
 };
 
 @interface AnyRTC : NSObject
@@ -31,10 +32,10 @@ typedef NS_ENUM(NSInteger,AnyRTCErrorCode){
 *  @param appId       the user's app Name on the platform
 */
 
-+ (void)InitAnyRTCWithKey:(NSString*)developerID
-                withToken:(NSString*)token
-               withAppKey:(NSString*)appKey
-                withAppId:(NSString*)appId;
++ (void)InitAnyRTC:(NSString*)developerID
+         withToken:(NSString*)token
+        withAppKey:(NSString*)appKey
+         withAppId:(NSString*)appId;
 
 /**
  *  Update token (when login authentication,get from server by youself)

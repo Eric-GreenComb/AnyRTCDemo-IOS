@@ -137,7 +137,7 @@
         
         if (localVideoItem.videoSize.width>0&& localVideoItem.videoSize.height>0) {
             videoViewHeight = (localVideoItem.videoSize.height/localVideoItem.videoSize.width)*remoteViewWidth;
-            otherVideoItem.videoView.frame = CGRectMake(CGRectGetMaxX(self.view.frame)-remoteViewWidth, CGRectGetMaxY(self.view.frame)-videoViewHeight, remoteViewWidth, videoViewHeight);
+            localVideoItem.videoView.frame = CGRectMake(CGRectGetMaxX(self.view.frame)-remoteViewWidth, CGRectGetMaxY(self.view.frame)-videoViewHeight, remoteViewWidth, videoViewHeight);
             if (!localVideoItem.videoView.superview) {
                 [self.view addSubview:localVideoItem.videoView];
             }
@@ -265,7 +265,7 @@
 {
     if (videoView == localVideoItem.videoView) {
         localVideoItem.videoSize = size;
-        [self layoutOtherVideoView];
+        [self layoutMyself];
     }else if(videoView == hostVideoItem.videoView){
         hostVideoItem.videoSize = size;
         [self layoutHost];
@@ -300,7 +300,7 @@
         otherVideoItem = nil;
     }
 }
-- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withNikeName:(NSString*)nsCustomName withContent:(NSString*)nsContent
+- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withCustomName:(NSString *)nsCustomName withContent:(NSString *)nsContent
 {
     if (messageView) {
         [messageView receiveMessage:nsContent withUserId:nsCustomName withHeadPath:nil];

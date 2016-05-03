@@ -23,7 +23,7 @@
 #warning  Warning 用户需要去 www.anyrtc.io 注册开发者，并且创建App,你会得到：developerID，token，appKey; appId是你在开发平台上注册的应用名称
     NSLog(@"请到AppDelegate里面设置参数");
     assert(developerID.length>0 && token.length>0 && key.length>0 && appID.length>0);
-    [AnyRTC InitAnyRTCWithKey:developerID withToken:token withAppKey:key withAppId:appID];
+    [AnyRTC InitAnyRTC:developerID withToken:token withAppKey:key withAppId:appID];
   
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     NSDictionary *navbarTitleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor]};

@@ -11,7 +11,6 @@
 #import "ASHUD.h"
 #import "TalkManagerView.h"
 #import <Masonry/Masonry.h>
-
 #define ISIPAD (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) // 判断设备是不是iPad
 #define VideoHeight 200
 
@@ -183,6 +182,8 @@
 -(void) OnRtcLiveApplyLine:(NSString*)nsPeerId withUserName:(NSString*)nsUserName withBrief:(NSString*)nsBrief
 {
     NSLog(@"OnRtcLiveApplyLine:%@ withUserName:%@ withBrief:%@",nsPeerId,nsUserName,nsBrief);
+    
+    
     if (peerID) {
         [hostLiveKit RejectApplyLine:nsPeerId];
         return;
@@ -237,7 +238,7 @@
     }
     otherLinkVideoItem = nil;
 }
-- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withNikeName:(NSString*)nsCustomName withContent:(NSString*)nsContent
+- (void)OnRtcLiveUserMsg:(NSString*)nsCustomId withCustomName:(NSString *)nsCustomName withContent:(NSString *)nsContent
 {
     if (_messageView) {
         [_messageView receiveMessage:nsContent withUserId:nsCustomName withHeadPath:nil];
