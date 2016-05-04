@@ -11,7 +11,6 @@
 #import "AnyrtcLive.h"
 
 @protocol AnyRTCLiveGuestDelegate <AnyRTCLiveDelegate>
-@optional
 /**
  *  Apply chat result
  *
