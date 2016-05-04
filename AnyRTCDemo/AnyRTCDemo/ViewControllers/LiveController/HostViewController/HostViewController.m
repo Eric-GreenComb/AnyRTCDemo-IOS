@@ -42,7 +42,7 @@
     // 预览功能
     [hostLiveKit SetPreviewEnable:YES];
     #warning Warning 测试直播号，是开发者在平台上申请，也可以服务对接来生产anyrtcID
-    [hostLiveKit Join:@"" andCustomId:@"threeID" andCustomName:@"host name" andEnableCallIn:YES andEnableMemberList:YES];
+    [hostLiveKit Join:@"800000000025" andCustomId:@"threeID" andCustomName:@"host name" andEnableCallIn:YES andEnableMemberList:YES];
      NSLog(@"请到平台上申请测试的anyrtcID，或者服务对接生成房间号");
     
     _messageView = [[TalkManagerView alloc] initWithFrame:CGRectZero WithInputView:NO];
@@ -134,6 +134,11 @@
                 peerID = nil;
             }
         }
+    }else if(alertView.tag == 502){
+        if (hostLiveKit) {
+            [hostLiveKit Leave];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
  
 }
@@ -168,6 +173,13 @@
 - (void) OnRtcLeaveLive:(int) code
 {
     NSLog(@"OnRtcLeaveLive:%d",code);
+    if (code == AnyRTC_FORCE_EXIT)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请去AnyRTC官网申请账号,如有疑问请联系客服!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertView.tag = 502;
+        [alertView show];
+        
+    }
 }
 
 - (void)OnRtcRemoteAVStatus:(NSString*)publishID withAudioEnable:(BOOL)audioEnable withVideoEnable:(BOOL)videoEnable

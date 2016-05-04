@@ -10,7 +10,7 @@
 #import "AnyRTCMeetKit.h"
 #import "ASHUD.h"
 
-@interface CallVideoController ()<AnyRTCMeetDelegate,UIGestureRecognizerDelegate>
+@interface CallVideoController ()<AnyRTCMeetDelegate,UIGestureRecognizerDelegate,UIAlertViewDelegate>
 {
     AnyRTCMeetKit         *anyRTCKit;
     AnyRTCVideoItem   *localVideoItem;
@@ -289,6 +289,17 @@
     [anyRTCKit Leave];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+  if(alertView.tag == 502){
+        if (anyRTCKit) {
+            [anyRTCKit Leave];
+        }
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+}
+
+
 #pragma mark - AnyRTCMeetDelegate
 /** enter metting secuess
  *
@@ -316,7 +327,13 @@
  */
 - (void) OnRtcLeaveMeet:(int) code
 {
-    
+    if (code == AnyRTC_FORCE_EXIT)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"请去AnyRTC官网申请账号,如有疑问请联系客服!" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+        alertView.tag = 502;
+        [alertView show];
+        
+    }
 }
 /** video  window size
  *

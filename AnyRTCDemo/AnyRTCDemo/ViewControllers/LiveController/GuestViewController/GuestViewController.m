@@ -50,7 +50,7 @@
 //    [self.view addSubview: localVideoItem.videoView];
     guestLiveKit = [[AnyRTCLiveGuestKit alloc] initWithDelegate:self withLocalViewItem:localVideoItem];
 #warning Warning 测试直播号，是开发者在平台上申请，也可以服务对接来生产anyrtcID  800000000025  800000000028
-    [guestLiveKit Join:@"" andCustomId:@"three id" andCustomName:@"guest name" andEnableMemberList:YES];
+    [guestLiveKit Join:@"800000000025" andCustomId:@"three id" andCustomName:@"guest name" andEnableMemberList:YES];
         NSLog(@"请到平台上申请测试的anyrtcID，或者服务对接生成房间号");
     
     self.handUpButton.hidden = YES;

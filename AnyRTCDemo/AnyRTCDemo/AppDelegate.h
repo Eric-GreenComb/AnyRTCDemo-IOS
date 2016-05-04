@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-static NSString *developerID = @"";
-static NSString *token = @"";
-static NSString *key = @"";
-static NSString *appID = @"";
+static NSString *developerID = @"teameetingtest";
+static NSString *token = @"c4cd1ab6c34ada58e622e75e41b46d6d";
+static NSString *key = @"OPJXF3xnMqW+7MMTA4tRsZd6L41gnvrPcI25h9JCA4M";
+static NSString *appID = @"meetingtest";
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
