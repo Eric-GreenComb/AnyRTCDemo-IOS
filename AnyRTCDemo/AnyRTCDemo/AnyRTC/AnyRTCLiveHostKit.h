@@ -11,6 +11,7 @@
 #import "AnyRTCLive.h"
 
 @protocol AnyRTCLiveHostDelegate <AnyRTCLiveDelegate>
+@optional
 /**
  *  Live infomation
  *
