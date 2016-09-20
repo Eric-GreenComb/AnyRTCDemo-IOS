@@ -36,6 +36,7 @@
 		7871532F1CC766DA00DD7C70 /* ASHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7871532E1CC766DA00DD7C70 /* ASHUD.m */; };
 		787153321CC7687000DD7C70 /* CallVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787153311CC7687000DD7C70 /* CallVideoController.m */; };
 		787153351CC7688200DD7C70 /* CallAudioController.m in Sources */ = {isa = PBXBuildFile; fileRef = 787153341CC7688200DD7C70 /* CallAudioController.m */; };
+		78BEA05D1CE4815300435BB1 /* GuestToolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 78BEA05C1CE4815300435BB1 /* GuestToolViewController.m */; };
 		CFC17B61665923087018EB19 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F2DA1613BB012281F916CCC /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +119,8 @@
 		787153311CC7687000DD7C70 /* CallVideoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallVideoController.m; sourceTree = "<group>"; };
 		787153331CC7688200DD7C70 /* CallAudioController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CallAudioController.h; sourceTree = "<group>"; };
 		787153341CC7688200DD7C70 /* CallAudioController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CallAudioController.m; sourceTree = "<group>"; };
+		78BEA05B1CE4815300435BB1 /* GuestToolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GuestToolViewController.h; sourceTree = "<group>"; };
+		78BEA05C1CE4815300435BB1 /* GuestToolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GuestToolViewController.m; sourceTree = "<group>"; };
 		93A280E9F390E8CCDA5938C0 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		CD11B245E691ECDF31F4AE9D /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -320,6 +323,8 @@
 			children = (
 				782349611CCF88BA00B00CF8 /* GuestViewController.h */,
 				782349621CCF88BA00B00CF8 /* GuestViewController.m */,
+				78BEA05B1CE4815300435BB1 /* GuestToolViewController.h */,
+				78BEA05C1CE4815300435BB1 /* GuestToolViewController.m */,
 			);
 			path = GuestViewController;
 			sourceTree = "<group>";
@@ -494,6 +499,7 @@
 				TargetAttributes = {
 					78057D751CB6580C00326D40 = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 3YB54BC6QT;
 					};
 					78057D8E1CB6580C00326D40 = {
 						CreatedOnToolsVersion = 7.3;
@@ -622,6 +628,7 @@
 				7871532F1CC766DA00DD7C70 /* ASHUD.m in Sources */,
 				7821C47E1CB67781009D17A5 /* UIColor+Category.m in Sources */,
 				787153321CC7687000DD7C70 /* CallVideoController.m in Sources */,
+				78BEA05D1CE4815300435BB1 /* GuestToolViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -766,7 +773,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: xiaochuan zhou (63ZHPEL54J)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: zhang jianqiang (YCZ22PJPZE)";
+				DEVELOPMENT_TEAM = 3YB54BC6QT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AnyRTCDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -789,8 +797,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dync.anyrtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "d387e7ca-83ed-45b5-aae0-46abe30af199";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "d9371124-ec23-4acb-92e6-e23872280f69";
+				PROVISIONING_PROFILE_SPECIFIER = ZJQ_DEV;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -802,6 +811,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: AVCON Information Technology Co., Ltd.";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: AVCON Information Technology Co., Ltd.";
+				DEVELOPMENT_TEAM = 3YB54BC6QT;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AnyRTCDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -824,8 +834,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.dync.anyrtc;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "326a786e-bfa0-4b80-9f8b-1c5309d941c4";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "e87a12e6-1339-417d-909b-f14692cfe922";
+				PROVISIONING_PROFILE_SPECIFIER = ZJQ_DIS;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

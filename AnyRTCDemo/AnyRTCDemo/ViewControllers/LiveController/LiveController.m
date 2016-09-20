@@ -13,6 +13,7 @@
 #import <Masonry/Masonry.h>
 
 @interface LiveController ()
+@property (nonatomic, strong) UIButton *serviceButton;
 @property (nonatomic, strong) UIButton *hostButton;
 @property (nonatomic, strong) UIButton *guestButton;
 @end
@@ -27,6 +28,14 @@
     [super viewDidLoad];
     self.title = @"直播";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.serviceButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [self.serviceButton setTitle:@"观看客服直播" forState:UIControlStateNormal];
+    self.serviceButton.layer.cornerRadius = 24;
+    self.serviceButton.backgroundColor = [UIColor colorWithHexString:@"2fcf6f"];
+    [self.serviceButton addTarget:self action:@selector(serviceButtonEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:self.serviceButton];
+    
     
     self.hostButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.hostButton setTitle:@"发布直播" forState:UIControlStateNormal];
@@ -43,11 +52,19 @@
     [self.view addSubview:self.guestButton];
     
     __weak LiveController *weakSelf = self;
+    
+    [self.serviceButton mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.equalTo(weakSelf.view.mas_left).offset(20);
+        make.right.equalTo(weakSelf.view.mas_right).offset(-20);
+        make.height.equalTo(@50);
+        make.bottom.equalTo(weakSelf.hostButton.mas_top).offset(-30);
+    }];
+    
     [self.hostButton mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(weakSelf.view.mas_left).offset(20);
         make.right.equalTo(weakSelf.view.mas_right).offset(-20);
         make.height.equalTo(@50);
-        make.centerY.equalTo(weakSelf.view.mas_centerY).multipliedBy(.8);
+        make.centerY.equalTo(weakSelf.view.mas_centerY);
     }];
     
     [self.guestButton mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -58,6 +75,14 @@
     }];
 
 }
+- (void)serviceButtonEvent:(UIButton *)button {
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    GuestViewController *hostViewController = [storyBoard instantiateViewControllerWithIdentifier:@"guestViewController"];
+    hostViewController.anyRTCID = @"800000000028";
+    [self presentViewController:hostViewController animated:YES completion:nil];
+}
+
 - (void)hostButtonEvent:(UIButton*)button
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -71,6 +96,7 @@
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     GuestViewController *hostViewController = [storyBoard instantiateViewControllerWithIdentifier:@"guestViewController"];
+    hostViewController.anyRTCID = @"800000000025";
     [self presentViewController:hostViewController animated:YES completion:nil];
 }
 

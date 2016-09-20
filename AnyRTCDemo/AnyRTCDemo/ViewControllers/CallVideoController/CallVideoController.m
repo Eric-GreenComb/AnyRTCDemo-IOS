@@ -277,7 +277,7 @@
     if (videoButton.selected) {
          [anyRTCKit SetLocalVideoEnable:!videoButton.selected];
     }else{
-         [anyRTCKit SetLocalVideoEnable:videoButton.selected];
+         [anyRTCKit SetLocalVideoEnable:!videoButton.selected];
     }
   
 }
